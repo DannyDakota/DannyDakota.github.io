@@ -1,5 +1,5 @@
 import http from 'http';
-import Server from 'socket.io';
+import { Server } from 'socket.io';
 import express from 'express';
 import createServer  from 'http'
 import mongoose from 'mongoose';
@@ -53,7 +53,7 @@ const port = process.env.PORT || 5000;
 
 //chatbot
 const server = http.createServer(app);
-const io = new socket.io.Server(server);
+const io = new Server(server);
 const users = [];
 
 io.on('connection', (socket) => {
