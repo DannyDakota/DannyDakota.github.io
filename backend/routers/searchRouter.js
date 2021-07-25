@@ -1,5 +1,5 @@
 import express from 'express';
-import { PythonShell } from 'python-shell';
+import PythonShell from 'python-shell';
 import expressAsyncHandler from 'express-async-handler';
 import { setTimeout } from 'timers';
 import Product from '../models/productModel.js';
