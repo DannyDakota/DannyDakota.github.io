@@ -4,6 +4,7 @@ import data from '../data.js';
 import Product from '../models/productModel.js';
 import User from '../models/userModel.js';
 import { isAdmin, isAuth, isSellerOrAdmin } from '../utils.js';
+import finalProduct from './searchRouter.js';
 
 const productRouter = express.Router();
 
@@ -68,6 +69,7 @@ productRouter.get(
   })
 );
 
+//seed normal products
 productRouter.get(
   '/seed',
   expressAsyncHandler(async (req, res) => {
@@ -87,6 +89,29 @@ productRouter.get(
     }
   })
 );
+
+// seed scraped products
+// productRouter.post(
+//   '/seed',
+//   expressAsyncHandler(async (req, res) => {
+//     // await Product.remove({});
+//     console.log(finalProducts)
+//     const seller = await User.findOne({ isSeller: true });
+//     if (seller) {
+//       const products = finalProducts.map((product) => ({
+//         ...product,
+//         seller: seller._id,
+//       }));
+//       const createdProducts = await Product.insertMany(products);
+//       res.send({ createdProducts });
+//     } else {
+//       res
+//         .status(500)
+//         .send({ message: 'No seller found. first run /api/users/seed' });
+//     }
+//   })
+// );
+
 
 productRouter.get(
   '/:id',
@@ -125,6 +150,8 @@ productRouter.post(
     res.send({ message: 'Product Created', product: createdProduct });
   })
 );
+
+
 productRouter.put(
   '/:id',
   isAuth,

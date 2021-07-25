@@ -133,6 +133,7 @@ a.brand {
 }
 .col-2 {
   flex: 2 1 50rem;
+  padding-right: 10px;
 }
 .col-3 {
   flex: 32 1 75rem;

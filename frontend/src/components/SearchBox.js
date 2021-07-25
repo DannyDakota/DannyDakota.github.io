@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
-import {scrapeProducts} from '../../../backend/scrapers'
+import Axios from 'axios';
+
+
 
 export default function SearchBox(props) {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const submitHandler = (e) => {
     e.preventDefault();
-    scrapeProducts(name);
-    //props.history.push(`/search/name/${name}`);
-  };
+    // props.history.push(`/search/name/${name}`);
+
+    // const { searchText } = this.state;
+    const data = {
+      searchText: name
+    };
+
+    function myFunction() {
+      alert("Please wait around 30 seconds while we webscrape the ecommerce websites! Click ok to start scraping!")
+      setTimeout(() => props.history.push(`/search/name/${name}`), 35000)
+    }
+
+    Axios.post('/api/search', { data })
+    .then(() => myFunction())
+
+  
+  }
   return (
     <form className="search" onSubmit={submitHandler}>
       <div className="row">
