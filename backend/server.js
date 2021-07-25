@@ -1,6 +1,7 @@
 import http from 'http';
 import { Server }  from 'socket.io';
 import express from 'express';
+import { createServer } from 'http'
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -51,8 +52,8 @@ const port = process.env.PORT || 5000;
 
 
 //chatbot
-const httpServer = http.Server(app);
-const io = new Server(httpServer, { cors: { origin: '*' } });
+const server= createServer(app);
+const io = new Server(server);
 const users = [];
 
 io.on('connection', (socket) => {
@@ -123,7 +124,7 @@ io.on('connection', (socket) => {
   });
 });
 
-httpServer.listen(port, () => {
+server.listen(port, () => {
   console.log(`Serve at http://localhost:${port}`);
 });
 
