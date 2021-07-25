@@ -52,7 +52,7 @@ const port = process.env.PORT || 5000;
 
 
 //chatbot
-const server= createServer(app);
+const server = http.createServer(app);
 const io = new Server(server);
 const users = [];
 
