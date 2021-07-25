@@ -53,7 +53,7 @@ const port = process.env.PORT || 5000;
 
 //chatbot
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new socket.io.Server(server);
 const users = [];
 
 io.on('connection', (socket) => {
