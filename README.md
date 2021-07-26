@@ -29,7 +29,6 @@ In your CLI(in the code folder):
     
     2) npm start
     
-    3) Run Frontend
     
 # 4. Open new terminal
 
