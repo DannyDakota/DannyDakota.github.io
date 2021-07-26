@@ -48,3 +48,11 @@ Run this on chrome: http://localhost:5000/api/users/seed
 Run this on chrome: http://localhost:5000/api/products/seed
 
 This creates 6 sample products
+
+
+Note: 
+-To access seller dedicated application:
+User : admin@example.com
+Password: 1234
+
+-Also note that we process insert each search scrape into the mongoDB server so refrain from searching the same string twice as it will result in duplicate elements popping up in the product screen. Instead, proceed to categories on the left to select the previously searched string.
