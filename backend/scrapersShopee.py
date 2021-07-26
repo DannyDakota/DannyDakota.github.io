@@ -60,7 +60,7 @@ def myFunction():
         indiv_product.append(brand)
         indiv_product.append(stock)
         indiv_product.append(website)
-        indiv_product.append("shopee.sg")
+        indiv_product.append("shopee.sg/search?keyword=" + keyword_search)
 
         product_list.append(indiv_product)
         indiv_product = []

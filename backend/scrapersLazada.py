@@ -108,8 +108,6 @@ while i <= len(titles_list) - 1:
     indiv_product.append("Lazada")
 
     product_list.append(indiv_product)
-    # print(indiv_product)
-    # print("\n")
     indiv_product = []
     i = i + 1
 
