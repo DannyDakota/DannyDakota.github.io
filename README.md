@@ -3,7 +3,7 @@
 To run the app:
 # 1. Clone repo
 in your CLI:
-  1) git clone git@github.com:DannyDakota/DannyDakota.github.io.git
+  1) git clone git@github.com:DannyDakota/DannyDakota.github.io.git / you can download the folder and open it in visual studio
   2) cd DannyDakota.github.io
 # 2. Setup MongoDB
   #  Local MongoDB
