@@ -2,7 +2,7 @@
 
 To run the app:
 1. Clone repo
-In your CLI:
+in your CLI:
   1) git clone git@github.com:DannyDakota/DannyDakota.github.io.git
   2) cd DannyDakota.github.io
 2. Setup MongoDB
