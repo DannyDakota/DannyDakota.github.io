@@ -21,6 +21,10 @@ Create .env file in root folder
 
 Set MONGODB_URL=mongodb+srv://your-db-connection
 
+![Screenshot 2021-08-01 at 7 42 34 PM (2)](https://user-images.githubusercontent.com/51451719/127769565-41d229b7-2166-415f-a28d-4e46919f777f.png)
+
+![Screenshot 2021-08-01 at 7 40 58 PM](https://user-images.githubusercontent.com/51451719/127769529-33e9fe85-ad89-4bc0-aea6-f7ac499673a8.png)
+
 # 3. Run Backend
 
 In your CLI(in the code folder):
