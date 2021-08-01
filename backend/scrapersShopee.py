@@ -27,8 +27,8 @@ product_list = []
 def myFunction():
     Shopee_url = 'https://shopee.sg'
     #   todo
-    keyword_search = str(sys.argv[1])
-    # keyword_search = 'shirt'
+    # keyword_search = str(sys.argv[1])
+    keyword_search = 'shirt'
     headers = {
         'User-Agent': 'Chrome',
         'Referer': '{}search?keyword={}'.format(Shopee_url, keyword_search)
@@ -52,19 +52,21 @@ def myFunction():
         stock = item['stock']
         website = 'www.shopee.sg'
 
-        indiv_product.append(name)
-        indiv_product.append(image)
-        indiv_product.append(price)
-        indiv_product.append(rating)
-        indiv_product.append(numReviews)
-        indiv_product.append(brand)
-        indiv_product.append(stock)
-        indiv_product.append(website)
-        indiv_product.append("shopee.sg/search?keyword=" + keyword_search)
+        if isinstance(price, float) == False:
+            continue
+        else:
+            indiv_product.append(name)
+            indiv_product.append(image)
+            indiv_product.append(price)
+            indiv_product.append(rating)
+            indiv_product.append(numReviews)
+            indiv_product.append(brand)
+            indiv_product.append(stock)
+            indiv_product.append(website)
+            indiv_product.append("shopee.sg/search?keyword=" + keyword_search)
 
-        product_list.append(indiv_product)
-        indiv_product = []
-
+            product_list.append(indiv_product)
+            indiv_product = []
     return product_list
 
 

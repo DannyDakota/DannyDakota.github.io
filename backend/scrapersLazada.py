@@ -18,7 +18,7 @@ Lazada_url = 'http://www.lazada.sg'
 
 search_item = str(sys.argv[1])
 
-# search_item = 'ethnotek'
+# search_item = 'candle'
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
@@ -54,63 +54,64 @@ link_to_product = driver.find_elements_by_xpath(
 
 link_list = []
 
-for product in link_to_product:
-    link = product.get_attribute("href")
-    link_list.append(link)
+x = 0
 
+while x < 20:
+    for product in link_to_product:
+        link = product.get_attribute("href")
+        link_list.append(link)
 
-titles_list = []
-prices_list = []
-image_list = []
+    titles_list = []
+    prices_list = []
+    image_list = []
 
+    for title in item_titles:
+        titles_list.append(title.text.replace(',', ''))
 
-for title in item_titles:
-    titles_list.append(title.text.replace(',', ''))
+    for price in item_prices:
+        formatPrice = price.text.replace(',', '')
+        prices_list.append(float(formatPrice[1:]))
 
+    i = 0
+    for image in item_images:
+        if (i < 3):
+            img_src = image.get_attribute('src')
+            image_list.append(img_src)
+            img_src = ""
+            i = i + 1
+        else:
+            image_list.append(
+                "https://laz-img-cdn.alicdn.com/images/ims-web/TB12_ByawFY.1VjSZFnXXcFHXXa.png")
 
-for price in item_prices:
-    formatPrice = price.text.replace(',', '')
-    prices_list.append(float(formatPrice[1:]))
-
-i = 0
-for image in item_images:
-    if (i < 3):
-        img_src = image.get_attribute('src')
-        image_list.append(img_src)
-        img_src = ""
-        i = i + 1
-    else:
-        image_list.append(
-            "https://laz-img-cdn.alicdn.com/images/ims-web/TB12_ByawFY.1VjSZFnXXcFHXXa.png")
-
-indiv_product = []
-product_list = []
-
-i = 0
-while i <= len(titles_list) - 1:
-
-    indiv_product.append(search_item.title() + ' ' + titles_list[i])
-
-    indiv_product.append(image_list[i])
-
-    indiv_product.append(prices_list[i])
-
-    indiv_product.append(5)
-
-    indiv_product.append(random.randint(0, 10))
-
-    indiv_product.append(titles_list[i].split()[0])
-
-    indiv_product.append(random.randint(0, 50))
-
-    indiv_product.append(link_list[i])
-
-    indiv_product.append("Lazada")
-
-    product_list.append(indiv_product)
     indiv_product = []
-    i = i + 1
+    product_list = []
 
-ratings = []
+    i = 0
+    while i <= len(titles_list) - 1:
+
+        indiv_product.append(search_item.title() + ' ' + titles_list[i])
+
+        indiv_product.append(image_list[i])
+
+        indiv_product.append(prices_list[i])
+
+        indiv_product.append(5)
+
+        indiv_product.append(random.randint(0, 10))
+
+        indiv_product.append(titles_list[i].split()[0])
+
+        indiv_product.append(random.randint(0, 50))
+
+        indiv_product.append(link_list[i])
+
+        indiv_product.append("Lazada")
+
+        product_list.append(indiv_product)
+        indiv_product = []
+        i = i + 1
+
+    ratings = []
+    x = x + 1
 
 print(product_list)
