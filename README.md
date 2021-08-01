@@ -17,6 +17,8 @@ Set MONGODB_URL=mongodb://localhost/relaxshopping
 
 Create database at https://cloud.mongodb.com
 
+Create a user with read and write to databse privileges(under Database Access)
+
 Create .env file in root folder
 
 Set MONGODB_URL=mongodb+srv://your-db-connection
